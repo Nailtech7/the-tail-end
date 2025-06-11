@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Clock } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Clock, Moon, Sun } from 'lucide-react';
 import TimeGrid from './components/TimeGrid';
 import AgeInput from './components/AgeInput';
 import ActivityCalculator from './components/ActivityCalculator';
@@ -8,6 +8,30 @@ import ViewSelector from './components/ViewSelector';
 function App() {
 	const [birthDate, setBirthDate] = useState(null);
 	const [viewMode, setViewMode] = useState('years');
+	const [darkMode, setDarkMode] = useState(() => {
+		if (typeof window !== 'undefined') {
+			return (
+				localStorage.getItem('darkMode') === 'true' ||
+				(!localStorage.getItem('darkMode') &&
+					window.matchMedia('(prefers-color-scheme: dark)').matches)
+			);
+		}
+		return false;
+	});
+
+	useEffect(() => {
+		if (darkMode) {
+			document.documentElement.classList.add('dark');
+			localStorage.setItem('darkMode', 'true');
+		} else {
+			document.documentElement.classList.remove('dark');
+			localStorage.setItem('darkMode', 'false');
+		}
+	}, [darkMode]);
+
+	const toggleDarkMode = () => {
+		setDarkMode(!darkMode);
+	};
 
 	return (
 		<div className='min-h-screen bg-gradient-to-br from-secondary-50 via-white to-primary-50 dark:from-secondary-900 dark:via-secondary-800 dark:to-secondary-900 transition-all duration-500'>
@@ -16,7 +40,13 @@ function App() {
 				<header className='text-center mb-12 animate-fade-in'>
 					<div className='flex items-center justify-center space-x-3 mb-4'>
 						<div className='p-2 bg-primary-100 dark:bg-primary-900/30 rounded-xl'>
-							<Clock className='w-8 h-8 text-primary-600 dark:text-primary-400' />
+							<button onClick={toggleDarkMode}>
+								{darkMode ? (
+									<Moon className='w-8 h-8 text-primary-600 dark:text-primary-400' />
+								) : (
+									<Sun className='w-8 h-8 text-primary-600 dark:text-primary-400' />
+								)}
+							</button>
 						</div>
 						<h1 className='text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent'>
 							Life in Weeks
