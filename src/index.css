@@ -1,11 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import 'tailwindcss';
-
-@theme {
-	--font-title: 'Playfair Display', serif;
-}
 
 /*
   darkMode: 'class' is typically handled automatically by Tailwind v4
@@ -59,39 +54,9 @@
 
 	--font-family-sans: Inter, system-ui, sans-serif;
 
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-			transform: translateY(10px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-	@keyframes slideUp {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-	@keyframes pulseSoft {
-		0%,
-		100% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0.8;
-		}
-	}
-
-	--animation-fade-in: fadeIn 0.5s ease-in-out;
-	--animation-slide-up: slideUp 0.3s ease-out;
-	--animation-pulse-soft: pulseSoft 2s infinite;
+	--animate-fade-in: fadeIn 0.5s ease-in-out;
+	--animate-slide-up: slideUp 0.3s ease-out;
+	--animate-pulse-soft: pulseSoft 2s infinite;
 }
 
 body {
@@ -108,6 +73,35 @@ body {
 	}
 }
 
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes pulseSoft {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.8;
+	}
+}
 @layer utilities {
 	.scrollbar-thin {
 		scrollbar-width: thin;
