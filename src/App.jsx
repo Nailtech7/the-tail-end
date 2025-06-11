@@ -55,7 +55,16 @@ function App() {
 					<p className='text-lg text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto mb-6'>
 						Visualize your life in a new perspective. Each square represents a
 						unit of time, helping you appreciate every moment and make the most
-						of your time.
+						of your time. Inspired by{' '}
+						<a
+							href='https://waitbutwhy.com/2015/12/the-tail-end.html'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='text-primary-600 dark:text-primary-400 hover:underline'
+						>
+							Tim Urban's article
+						</a>
+						.
 					</p>
 				</header>
 
@@ -86,7 +95,7 @@ function App() {
 				{/* Footer */}
 				<footer className='text-center mt-16 py-8 border-t border-secondary-200 dark:border-secondary-700'>
 					<p className='text-secondary-500 dark:text-secondary-400 animate-pulse-soft'>
-						Life is finite. Make every moment count. ⏳
+						Life is finite. Make every moment count.
 					</p>
 					<p className='text-secondary-500 dark:text-secondary-400 mt-8 text-sm'>
 						Experimented by Nailtech :)
