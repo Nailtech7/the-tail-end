@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+	--font-title: 'Playfair Display', serif;
+}
+
+/*
+  darkMode: 'class' is typically handled automatically by Tailwind v4
+  when the class is present on the HTML element. No explicit CSS config needed here.
+*/
+
+@theme {
+	--color-primary-50: #f0f9ff;
+	--color-primary-100: #e0f2fe;
+	--color-primary-200: #bae6fd;
+	--color-primary-300: #7dd3fc;
+	--color-primary-400: #38bdf8;
+	--color-primary-500: #0ea5e9;
+	--color-primary-600: #0284c7;
+	--color-primary-700: #0369a1;
+	--color-primary-800: #075985;
+	--color-primary-900: #0c4a6e;
+
+	--color-secondary-50: #f8fafc;
+	--color-secondary-100: #f1f5f9;
+	--color-secondary-200: #e2e8f0;
+	--color-secondary-300: #cbd5e1;
+	--color-secondary-400: #94a3b8;
+	--color-secondary-500: #64748b;
+	--color-secondary-600: #475569;
+	--color-secondary-700: #334155;
+	--color-secondary-800: #1e293b;
+	--color-secondary-900: #0f172a;
+
+	--color-accent-50: #ecfdf5;
+	--color-accent-100: #d1fae5;
+	--color-accent-200: #a7f3d0;
+	--color-accent-300: #6ee7b7;
+	--color-accent-400: #34d399;
+	--color-accent-500: #10b981;
+	--color-accent-600: #059669;
+	--color-accent-700: #047857;
+	--color-accent-800: #065f46;
+	--color-accent-900: #064e3b;
+
+	--color-warm-50: #fefce8;
+	--color-warm-100: #fef3c7;
+	--color-warm-200: #fde68a;
+	--color-warm-300: #fcd34d;
+	--color-warm-400: #fbbf24;
+	--color-warm-500: #f59e0b;
+	--color-warm-600: #d97706;
+	--color-warm-700: #b45309;
+	--color-warm-800: #92400e;
+	--color-warm-900: #78350f;
+
+	--font-family-sans: Inter, system-ui, sans-serif;
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes slideUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes pulseSoft {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.8;
+		}
+	}
+
+	--animation-fade-in: fadeIn 0.5s ease-in-out;
+	--animation-slide-up: slideUp 0.3s ease-out;
+	--animation-pulse-soft: pulseSoft 2s infinite;
+}
+
+body {
+	font-family: var(--font-family-sans);
+}
+
+@layer base {
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+	}
+
+	body {
+		@apply antialiased;
+	}
+}
+
+@layer utilities {
+	.scrollbar-thin {
+		scrollbar-width: thin;
+	}
+
+	.scrollbar-thumb-gray-300 {
+		scrollbar-color: #d1d5db transparent;
+	}
+
+	.dark .scrollbar-thumb-gray-600 {
+		scrollbar-color: #4b5563 transparent;
+	}
+}
